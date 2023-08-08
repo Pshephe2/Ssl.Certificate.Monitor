@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ssl.Certificate.Monitor", "Ssl.Certificate.Monitor\Ssl.Certificate.Monitor.csproj", "{004A1622-8633-4B08-9641-430444459255}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssl.Certificate.Data", "Ssl.Certificate.Data\Ssl.Certificate.Data.csproj", "{8452D38C-5604-4948-98C5-741CB4E8A993}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssl.Certificate.Tests", "Ssl.Certificate.Tests\Ssl.Certificate.Tests.csproj", "{7A706A55-06B2-470B-B3BD-C523BF078659}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{004A1622-8633-4B08-9641-430444459255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004A1622-8633-4B08-9641-430444459255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004A1622-8633-4B08-9641-430444459255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004A1622-8633-4B08-9641-430444459255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8452D38C-5604-4948-98C5-741CB4E8A993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8452D38C-5604-4948-98C5-741CB4E8A993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8452D38C-5604-4948-98C5-741CB4E8A993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8452D38C-5604-4948-98C5-741CB4E8A993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A706A55-06B2-470B-B3BD-C523BF078659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A706A55-06B2-470B-B3BD-C523BF078659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A706A55-06B2-470B-B3BD-C523BF078659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A706A55-06B2-470B-B3BD-C523BF078659}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39D5188A-2FBD-44AA-BE12-3E6C385483F3}
+	EndGlobalSection
+EndGlobal
