@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Ssl.Certificate.Monitor.Repository
 {
-    internal class SslActivityLogRepository : Repository<SslActivityLog>, ISslActivityLogRepository
+    public class SslActivityLogRepository : Repository<SslActivityLog>, ISslActivityLogRepository
     {
         public SslActivityLogRepository(MonitorDbContext dbContext)
             :base(dbContext) { }

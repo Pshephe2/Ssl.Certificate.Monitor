@@ -4,7 +4,7 @@ using Ssl.Certificate.Monitor.Interfaces;
 
 namespace Ssl.Certificate.Monitor.Repository
 {
-    internal class ControlRepository: Repository<SslControlTable>, IControlRepository
+    public class ControlRepository: Repository<SslControlTable>, IControlRepository
     {
         public ControlRepository(MonitorDbContext dbContext)
             : base(dbContext) { }

@@ -4,7 +4,7 @@ using Ssl.Certificate.Monitor.Interfaces;
 
 namespace Ssl.Certificate.Monitor.Repository
 {
-    internal class Repository<T> : IRepository<T> where T: class
+    public class Repository<T> : IRepository<T> where T: class
     {
         private readonly MonitorDbContext _dbContext;
         private DbSet<T> _dbSet;

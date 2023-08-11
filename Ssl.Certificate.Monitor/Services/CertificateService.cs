@@ -10,6 +10,7 @@ namespace Ssl.Certificate.Monitor.Services
     {
         private readonly IControlRepository _controlRepository;
         private readonly ISslActivityLogRepository _logRepository;
+
         public CertificateService(
             IControlRepository controlRepository,
             ISslActivityLogRepository logRepository
@@ -28,7 +29,7 @@ namespace Ssl.Certificate.Monitor.Services
         private X509Certificate GetCertificate(string url, int port = 443)
         {
             RemoteCertificateValidationCallback certCallback = (_, _, _, _) => true;
-            var tcpClient = new TcpClient();
+            using var tcpClient = new TcpClient();
             tcpClient.Connect(url, port);
 
             var netstream = tcpClient.GetStream();
