@@ -1,7 +1,6 @@
 ﻿using Ssl.Certificate.Data.Models;
 using Ssl.Certificate.Monitor.Interfaces;
 using System.Net.Security;
-using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Ssl.Certificate.Monitor.Services
@@ -25,8 +24,7 @@ namespace Ssl.Certificate.Monitor.Services
 
         private IEnumerable<SslControlTable> GetSites()
         {
-            var items = _controlRepository.GetAll();
-            return items;
+            return _controlRepository.GetAll();
         }
 
         private X509Certificate GetCertificate(string url, int port = 443)

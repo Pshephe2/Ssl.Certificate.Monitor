@@ -1,33 +1,27 @@
 ﻿using Ssl.Certificate.Monitor.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ssl.Certificate.Monitor.Services
 {
     public class TcpClientWrapper : ITcpClientWrapper
     {
-        private TcpClient tcpClient;
-
+        private TcpClient? _tcpClient;
         public void Connect(string hostname, int port)
         {
-            tcpClient = new TcpClient();
-            tcpClient.Connect(hostname, port);
+            _tcpClient = new TcpClient();
+            _tcpClient.Connect(hostname, port);
         }
 
         public X509Certificate SendData(string url)
         {
-            if (tcpClient == null || !tcpClient.Connected)
+            if (_tcpClient is not { Connected: true })
             {
                 throw new InvalidOperationException("TcpClient is not connected.");
             }
 
-            NetworkStream stream = tcpClient.GetStream();
+            var stream = _tcpClient.GetStream();
             var sslStream = new SslStream(stream, false);
             sslStream.AuthenticateAsClient(url);
             var serverCertificate = sslStream.RemoteCertificate;
@@ -36,7 +30,7 @@ namespace Ssl.Certificate.Monitor.Services
 
         public void Close()
         {
-            tcpClient?.Close();
+            _tcpClient?.Close();
         }
     }
 }

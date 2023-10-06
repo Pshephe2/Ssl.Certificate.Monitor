@@ -1,5 +1,4 @@
-﻿using Ssl.Certificate.Data;
-using Ssl.Certificate.Monitor.Interfaces;
+﻿using Ssl.Certificate.Monitor.Interfaces;
 
 namespace Ssl.Certificate.Monitor
 {
