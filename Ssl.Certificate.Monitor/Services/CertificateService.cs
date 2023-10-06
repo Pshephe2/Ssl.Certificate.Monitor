@@ -10,14 +10,17 @@ namespace Ssl.Certificate.Monitor.Services
     {
         private readonly IControlRepository _controlRepository;
         private readonly ISslActivityLogRepository _logRepository;
+        private readonly ITcpClientWrapper _tcpClientWrapper;
 
         public CertificateService(
             IControlRepository controlRepository,
-            ISslActivityLogRepository logRepository
+            ISslActivityLogRepository logRepository,
+            ITcpClientWrapper tcpClientWrapper
             ) 
         { 
             _controlRepository = controlRepository;
             _logRepository = logRepository;
+            _tcpClientWrapper = tcpClientWrapper;
         }
 
         private IEnumerable<SslControlTable> GetSites()
@@ -29,15 +32,10 @@ namespace Ssl.Certificate.Monitor.Services
         private X509Certificate GetCertificate(string url, int port = 443)
         {
             RemoteCertificateValidationCallback certCallback = (_, _, _, _) => true;
-            using var tcpClient = new TcpClient();
-            tcpClient.Connect(url, port);
-
-            var netstream = tcpClient.GetStream();
-            var sslStream = new SslStream(netstream, false);
-
-            sslStream.AuthenticateAsClient(url);
-            var serverCertificate = sslStream.RemoteCertificate;
-            return serverCertificate!;
+            _tcpClientWrapper.Connect(url, port);
+            var cert = _tcpClientWrapper.SendData(url);
+            _tcpClientWrapper.Close();
+            return cert;
         }
 
         public void GetSslCertificateDetails()

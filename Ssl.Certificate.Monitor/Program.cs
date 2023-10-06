@@ -23,6 +23,7 @@ namespace Ssl.Certificate.Monitor
             services.AddSingleton<ICertificateService, CertificateService>();
             services.AddSingleton<IControlRepository, ControlRepository>();
             services.AddSingleton<ISslActivityLogRepository, SslActivityLogRepository>();
+            services.AddTransient<ITcpClientWrapper, TcpClientWrapper>();
             services.AddSingleton<IMonitor, Monitor>();
             var serviceProvider = services.BuildServiceProvider();            
             var monitor = serviceProvider.GetRequiredService<IMonitor>();
